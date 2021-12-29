@@ -1,0 +1,6 @@
+make_sure_program_does_not_have_bug
+make_sure_program_runs_on_cmd
+make_sure_you_upload_to_ninova
+why_do_i_haveto_use_whitespaces
+this_line_is_going_to_be_deleted
+
