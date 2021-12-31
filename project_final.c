@@ -21,8 +21,8 @@ void delete(){ // deletes specific line from the text file.
     char file1[] ="todo.txt"; //creating text files
     char file2[] ="temporary.txt"; // creating text files
     char curr; 
+    
     int del, line_number = 0;
-
     printf("\n"); // blank line for esthatic.
 
     list(); //listing contents in order to delete operation
@@ -49,9 +49,9 @@ void delete(){ // deletes specific line from the text file.
         if(curr =='\n') line_number++; //adding up 1 to line number
         if(curr == EOF) break; // breaking loop if it reachs end of file
     }
+    
     fclose(fptr1); //closing file1
     fclose(fptr2); //closing file2
-
     remove("todo.txt"); // removing todo.txt because we do not need it anymore
     rename("temporary.txt", "todo.txt"); //renaming temporary.txt to todo.txt because temporary.txt is now our new file.
 }
@@ -59,7 +59,6 @@ void delete(){ // deletes specific line from the text file.
 void list(){ //list function to list all contents of todo.list
 
     FILE *file = fopen("todo.txt", "r"); //opening todo.txt in read only mode
-
     if(file == NULL){ //basic check if file is accesible or not
         perror("Unable to open this file");
         exit(1); //exiting program
@@ -71,12 +70,13 @@ void list(){ //list function to list all contents of todo.list
     printf("\n"); // for esthatic
     
     while(fgets(line, sizeof(line), file)){ // an while loop for getting all lines from file1
+        
         if(line[0] != '\n'){ // sometimes when we delete line 1, blank line may be occur. this check is for preventing it to happen.
             printf("%d- ", counter); // ordering lines to make delete operation more easily.
             printf("%s", line); // printing line by line
-
             counter++;  } // adding up 1 to counter
     }
+    
     fclose(file); // closing file,  because we are going to delete todo.txt later.
 }
 
@@ -102,7 +102,6 @@ int main(void){
 
     printf("Welcome to the TODO APP!\n");
     printf("You need to use '_' instead of whitesepace character..."); // as mentioned, still could not resolve issue about whitespace chars.
-
     while(1){ // main software loop
 
         printf("\n");
@@ -111,6 +110,7 @@ int main(void){
         printf("Press 3 if you would like to delete a row.\n");
 
         int choice; // this will be used as user's choice
+        
         printf("Your choice: "); 
         scanf("%d", &choice); // assigning user input to our choice variable
 
